@@ -1,6 +1,9 @@
-﻿namespace LibraryConsole
+﻿namespace LibraryLogic
 {
-    internal class Work
+    /// <summary>
+    /// Прозведение.
+    /// </summary>
+    public class Work
     {
         public Work(string name, string author, string genre, int ageRestriction)
         {
@@ -18,9 +21,6 @@
         public string Name { get; }
         public string Author { get; }
         public string Genre { get; }
-
         public int AgeRestriction { get; }
-
-
     }
 }
