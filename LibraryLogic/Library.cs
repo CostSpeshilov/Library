@@ -13,11 +13,11 @@
         List<Rent> rents  = new List<Rent>();
 
         public List<Book> Books { get => books.ToList(); }
-        internal List<Client> Clients { get => clients.ToList(); }
+        public List<Client> Clients { get => clients.ToList(); }
         internal List<Rent> Rents { get => rents.ToList(); }
 
 
-        internal void AddClient(Client client)
+        public void AddClient(Client client)
         {
             if (client is null)
             {

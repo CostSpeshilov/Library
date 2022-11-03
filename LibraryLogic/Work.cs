@@ -3,7 +3,7 @@
     /// <summary>
     /// Прозведение.
     /// </summary>
-    public class Work
+    public struct Work
     {
         public Work(string name, string author, string genre, int ageRestriction)
         {
