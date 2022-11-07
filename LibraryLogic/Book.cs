@@ -1,6 +1,12 @@
-﻿namespace LibraryConsole
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LibraryLogic
 {
-    internal class Book
+    public class Book
     {
         private readonly List<Work> works;
 
@@ -16,7 +22,7 @@
         }
 
         public int PageCount { get; }
-        public DateTime PublishYear { get;  }
-        internal List<Work> Works => works.ToList();
+        public DateTime PublishYear { get; }
+        public List<Work> Works => works.ToList();
     }
 }

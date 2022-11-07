@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryConsole
+namespace LibraryLogic
 {
-    internal class Library
+    public class Library
     {
         List<Book> books;
 
@@ -18,12 +18,12 @@ namespace LibraryConsole
         List<Client> clients = new List<Client>();
         List<Rent> rents  = new List<Rent>();
 
-        internal List<Book> Books { get => books.ToList(); }
-        internal List<Client> Clients { get => clients.ToList(); }
+        public List<Book> Books { get => books.ToList(); }
+        public List<Client> Clients { get => clients.ToList(); }
         internal List<Rent> Rents { get => rents.ToList(); }
 
 
-        internal void AddClient(Client client)
+        public void AddClient(Client client)
         {
             if (client is null)
             {
