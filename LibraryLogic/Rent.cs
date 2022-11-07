@@ -1,6 +1,6 @@
-﻿namespace LibraryConsole
+﻿namespace LibraryLogic
 {
-    internal class Rent
+    public class Rent
     {
         internal Rent(Client client, Book book, DateTime dateOfRent, TimeSpan duration)
         {

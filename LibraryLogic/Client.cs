@@ -1,6 +1,6 @@
-﻿namespace LibraryConsole
+﻿namespace LibraryLogic
 {
-    internal class Client
+    public class Client
     {
         public Client(string name, string surName)
         {
