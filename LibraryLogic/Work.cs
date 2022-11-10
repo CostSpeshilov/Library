@@ -1,6 +1,6 @@
-﻿namespace LibraryConsole
+﻿namespace LibraryLogic
 {
-    internal class Work
+    public class Work
     {
         public Work(string name, string author, string genre, int ageRestriction)
         {
