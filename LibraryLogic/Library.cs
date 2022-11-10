@@ -16,7 +16,7 @@ namespace LibraryLogic
         }
 
         List<Client> clients = new List<Client>();
-        List<Rent> rents  = new List<Rent>();
+        List<Rent> rents = new List<Rent>();
 
         public List<Book> Books { get => books.ToList(); }
         public List<Client> Clients { get => clients.ToList(); }
@@ -33,10 +33,9 @@ namespace LibraryLogic
             clients.Add(client);
         }
 
-        internal void AddRent(Client client, Book book, TimeSpan duration)
+        public Rent Rent(Book book, Client client, DateTime dateOfRent)
         {
-            Rent rent = new Rent(client, book, DateTime.Now, duration);
-            rents.Add(rent);
+            return new Rent(client, book, dateOfRent, TimeSpan.Zero);
         }
     }
 }

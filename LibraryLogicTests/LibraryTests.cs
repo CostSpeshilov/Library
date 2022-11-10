@@ -34,5 +34,26 @@ namespace LibraryLogicTests
                 );
             Assert.Empty(sut.Clients);
         }
+
+        [Fact]
+
+        public void Rent_available_book()
+        {
+            //arrange
+            Work work = new Work("Му-му", "Тургенев", "Рассказ", 0);
+            Book book = new Book(new List<Work>() { work},100, new DateTime(2022,1,1));
+            Client client = new Client("Иван", "Иванов");
+            DateTime dateOfRent = new DateTime(2022, 1, 1, 13, 00, 00);
+
+            Library sut = new Library(new List<Book>() { book});
+
+            Rent expected = new Rent(client, book, dateOfRent, TimeSpan.Zero );
+            //act
+
+            Rent actual = sut.Rent(book, client, dateOfRent);
+
+            //assert
+            Assert.Equal(expected, actual);
+        }
     }
 }
