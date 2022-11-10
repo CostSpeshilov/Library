@@ -19,18 +19,19 @@ namespace LibraryLogic
         List<Rent> rents  = new List<Rent>();
 
         public List<Book> Books { get => books.ToList(); }
-        internal List<Client> Clients { get => clients.ToList(); }
+        public List<Client> Clients { get => clients.ToList(); }
         internal List<Rent> Rents { get => rents.ToList(); }
 
 
-        internal void AddClient(Client client)
+        public void AddClient(Client client)
         {
+
+            clients.Add(client);
             if (client is null)
             {
                 throw new ArgumentNullException(nameof(client));
             }
 
-            clients.Add(client);
         }
 
         internal void AddRent(Client client, Book book, TimeSpan duration)

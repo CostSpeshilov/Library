@@ -18,9 +18,6 @@
         public string Name { get; }
         public string Author { get; }
         public string Genre { get; }
-
         public int AgeRestriction { get; }
-
-
     }
 }
