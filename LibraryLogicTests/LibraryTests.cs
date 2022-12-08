@@ -10,27 +10,70 @@ namespace LibraryLogicTests
     public class LibraryTests
     {
         [Fact]
-        public void Client_adding_is_successful()
+        public void Adding_client_is_successful()
         {
             //Arrange
-            Client client = new Client("Иван", "Иванов");
-            Library sut = new Library(new List<Book>());
+            Library library = new Library(new List<Book>());
+            Client newClient = new Client("Иван", "Иванов");
+
             //Act
-            sut.AddClient(client);
+            library.AddClient(newClient);
+
             //Assert
-            Assert.Contains(client, sut.Clients);
+            Assert.Contains(newClient, library.Clients);
         }
 
         [Fact]
-        public void Client_adding_is_impossible()
+        public void Adding_null_client_is_impossible()
         {
             //Arrange
-            //Client client = new Client("Иван", "Иванов");
-            Library sut = new Library(new List<Book>());
+            Library library = new Library(new List<Book>());
+
             //Act
-            //Assert
-            Assert.Throws<ArgumentNullException>(() => sut.AddClient(null));
-            Assert.Empty(sut.Clients);
+            Assert.Throws<ArgumentNullException>(()=> library.AddClient(null));        
         }
+
+        [Fact]
+        public void Rent_is_possible()
+        {
+            //Arrange
+            Work work = new Work("Каштанка", "Чехов", "Рассказ", 0);
+            Book book = new Book(new List<Work>() { work}, 50, new DateTime(2022,1,1));
+            Client client = new Client("Пётр", "Петров");
+            DateTime dateOfRent = new DateTime(2022, 1, 2);
+            Rent expected = new Rent(client, book, dateOfRent, TimeSpan.Zero);
+
+            Library sut = new Library(new List<Book>() { book});
+            //Act
+
+            Rent actual = sut.Rent(book, client, TimeSpan.Zero, dateOfRent);
+
+            //Assert
+            Assert.Equal(expected, actual);
+
+        }
+
+        [Fact]
+        public void Rent_of_unknown_book_is_impossible()
+        {
+            //Arrange
+            Work work = new Work("Каштанка", "Чехов", "Рассказ", 0);
+            Book book = new Book(new List<Work>() { work }, 50, new DateTime(2022, 1, 1));
+
+            Book toRent = new Book(new List<Work>() { work }, 100, new DateTime(2002, 1, 1));
+
+            Client client = new Client("Пётр", "Петров");
+            DateTime dateOfRent = new DateTime(2022, 1, 2);
+            Rent expected = new Rent(client, toRent, dateOfRent, TimeSpan.Zero);
+
+            Library sut = new Library(new List<Book>() { book });
+            //Act
+
+
+            //Assert
+            Assert.Throws<Exception>(() => sut.Rent(toRent, client, TimeSpan.Zero, dateOfRent));
+
+        }
+
     }
 }

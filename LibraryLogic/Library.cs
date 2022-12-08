@@ -25,19 +25,21 @@ namespace LibraryLogic
 
         public void AddClient(Client client)
         {
-
-            clients.Add(client);
             if (client is null)
             {
                 throw new ArgumentNullException(nameof(client));
             }
 
+            clients.Add(client);
         }
 
-        internal void AddRent(Client client, Book book, TimeSpan duration)
+        public Rent Rent(Book book, Client client, TimeSpan zero, DateTime dateOfRent)
         {
-            Rent rent = new Rent(client, book, DateTime.Now, duration);
-            rents.Add(rent);
+            if (books.Contains(book))
+            {
+                return new Rent(client, book, dateOfRent, zero);
+            }
+            throw new Exception();            
         }
     }
 }
