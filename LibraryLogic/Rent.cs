@@ -1,8 +1,8 @@
 ﻿namespace LibraryLogic
 {
-    public class Rent
+    public struct Rent
     {
-        internal Rent(Client client, Book book, DateTime dateOfRent, TimeSpan duration)
+        public Rent(Client client, Book book, DateTime dateOfRent, TimeSpan duration)
         {
             Client = client;
             Book = book;
@@ -10,10 +10,9 @@
             Duration = duration;
         }
 
-        internal DateTime DateOfRent { get; }
-        internal TimeSpan Duration { get; }
-        internal Client Client { get; }
-        internal Book Book { get; }
-
+        public DateTime DateOfRent { get; }
+        public TimeSpan Duration { get; }
+        public Client Client { get; }
+        public Book Book { get; }
     }
 }
