@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryConsole", "Library\LibraryConsole.csproj", "{DBDEB9B4-BF4F-415D-9D9C-C72A4169C3B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryConsole", "Library\LibraryConsole.csproj", "{DBDEB9B4-BF4F-415D-9D9C-C72A4169C3B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryLogic", "LibraryLogic\LibraryLogic.csproj", "{AF2B308B-3E48-4053-821F-BAF3A3F5F900}"
 EndProject

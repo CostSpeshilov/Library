@@ -27,7 +27,7 @@ namespace LibraryLogicTests
             //arrange
             var sut = new Library(new List<Book>());
             //act
-            
+
             //assert
             Assert.Throws<ArgumentNullException>(
                 () => sut.AddClient(null)
@@ -54,6 +54,30 @@ namespace LibraryLogicTests
 
             //assert
             Assert.Equal(expected, actual);
+
         }
+
+        [Fact]
+        public void Rent_of_unknown_book_is_impossible()
+        {
+            //Arrange
+            Work work = new Work("Каштанка", "Чехов", "Рассказ", 0);
+            Book book = new Book(new List<Work>() { work }, 50, new DateTime(2022, 1, 1));
+
+            Book toRent = new Book(new List<Work>() { work }, 100, new DateTime(2002, 1, 1));
+
+            Client client = new Client("Пётр", "Петров");
+            DateTime dateOfRent = new DateTime(2022, 1, 2);
+            Rent expected = new Rent(client, toRent, dateOfRent, TimeSpan.Zero);
+
+            Library sut = new Library(new List<Book>() { book });
+            //Act
+
+
+            //Assert
+            Assert.Throws<Exception>(() => sut.Rent(toRent, client, dateOfRent));
+
+        }
+
     }
 }

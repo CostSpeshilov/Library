@@ -16,6 +16,7 @@ namespace LibraryLogicTests
             Assert.Equal("Рассказ", actual.Genre);
             Assert.Equal(0, actual.AgeRestriction);
         }
+
         [Fact]
         public void Work_creation_with_whitespace_genre_is_impossible()
         {
@@ -26,6 +27,7 @@ namespace LibraryLogicTests
                 () => new Work("Му-му", "Тургенев", " ", 0)
                 );
         }
+
         [Fact]
         public void Work_creation_with_empty_genre_is_impossible()
         {
@@ -36,6 +38,7 @@ namespace LibraryLogicTests
                 () => new Work("Му-му", "Тургенев", string.Empty, 0)
                 );
         }
+
         [Fact]
         public void Work_creation_with_null_genre_is_impossible()
         {
